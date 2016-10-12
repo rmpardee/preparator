@@ -13,7 +13,7 @@ module.exports = {
 	console.log(a);
 	*/
 
-	a: REPLACE_ME,
+	a: 10,
 
 	/*
 	var b = 10;
@@ -26,7 +26,7 @@ module.exports = {
 	console.log(foo());
 	*/
 
-	b: REPLACE_ME,
+	b: 'I am one with the force',
 
 	/*
 	var bar = typeof foo;
@@ -36,7 +36,7 @@ module.exports = {
 	console.log(bar);
 	*/
 
-	bar: REPLACE_ME,
+	bar: 'undefined',
 
 	/*
 	var foo = bar(10);
@@ -46,6 +46,6 @@ module.exports = {
 	console.log(foo);
   */
 
-	foo: REPLACE_ME,
+	foo: 10,
 
 };
