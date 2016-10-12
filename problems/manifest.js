@@ -12,7 +12,7 @@
   // './arrays/tests/remove_duplicates.test.js',
   // './arrays/tests/search_sorted_matrix.test.js',
 // 
-  './async/tests/asyncMap.test.js'
+  // './async/tests/asyncMap.test.js',
 //
   // './graphs/tests/graph.test.js',
 //
@@ -20,7 +20,7 @@
 //
   // './javascript/tests/arrays.test.js',
   // './javascript/tests/math.test.js',
-  // './javascript/tests/hoisting.test.js',
+  './javascript/tests/hoisting.test.js'
   // './javascript/tests/scoping.test.js',
   // './javascript/tests/async.test.js',
 // 
