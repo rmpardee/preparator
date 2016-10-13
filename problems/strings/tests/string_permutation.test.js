@@ -4,25 +4,45 @@ const solution = require('../prompts/string_permutation.js'),
     assert = require ('chai').assert;
 
 describe('Strings', () => {
-	describe('stringPermutation', () => {
+  describe('String Permutations', () => {
 
-	  it('should identify two strings that are permutations of each other', () => {
-	    assert.equal(solution.stringPermutation('derp', 'repd'), true);
-      assert.equal(solution.stringPermutation('OVO', 'VOO'), true);
-	  });
+    describe('should identify when two strings are permutations of each other', () => {
 
-    it('should identify two strings that are not permutations, but all the letters in the second string are in the first string', () => {
-      assert.equal(solution.stringPermutation('roar', 'rrrr'), false);
+      it('with the same length and same characters', () => {
+        assert.equal(solution.stringPermutation('derp', 'repd'), true);
+        assert.equal(solution.stringPermutation('OVO', 'VOO'), true);
+        assert.equal(solution.stringPermutation('xxxx', 'xxxx'), true);
+      });
     });
 
-    it('should identify two strings that are not permutations, but all the letters in the first string are in the second string', () => {
-      assert.equal(solution.stringPermutation('rrrr', 'roar'), false);
+    describe('should identify when two strings are NOT permutations of each other', () => {
+
+      describe('with the same length: ', () => {
+    
+        it('with different characters', () => {
+          assert.equal(solution.stringPermutation('rawr', 'rawl'), false);
+        });
+
+        it('and with the same set of characters', () => {
+          assert.equal(solution.stringPermutation('roar', 'rrrr'), false);
+          assert.equal(solution.stringPermutation('rrrr', 'roar'), false);
+        });
+
+      });
+      
+      describe('with different lengths: ', () => {
+
+        it('with different characters', () => {
+          assert.equal(solution.stringPermutation('rawrx', 'rawl'), false);
+        });
+
+        it('and with the same set of characters', () => {
+          assert.equal(solution.stringPermutation('rrr', 'rrrr'), false);
+          assert.equal(solution.stringPermutation('rrrr', 'rrr'), false);
+          assert.equal(solution.stringPermutation('wat', 'what'), false);
+          assert.equal(solution.stringPermutation('what', 'wat'), false);
+        });
+      });  
     });
-
-	  it('should not identify two strings that are not permutations of each other', () => {
-	    assert.equal(solution.stringPermutation('rawr', 'rawl'), false);
-      assert.equal(solution.stringPermutation('wat', 'what'), false);
-	  });
-
-	});
+  });
 });
