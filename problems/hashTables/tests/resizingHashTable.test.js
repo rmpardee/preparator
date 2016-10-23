@@ -59,13 +59,30 @@ describe('hashTables', () => {
           hashtable: i know
         */
       });
-  /*    it('should not throw an error with valid input', function(){
+      it('should not throw an error with valid input', function(){
         (function(){
           var hashTable = solution.makeHashTable();
           hashTable.insert('keanu reeves best movie', 'The Matrix');
           // calling insert should not throw an error
         }).should.not.throw();
-      });*/
+      });
+
+      it('should increment the size when adding', () => {
+        const hashTable = solution.makeHashTable();
+        let key = 'keanu reeves best movie';
+        hashTable.insert(key, 'Bill & Ted\'s Excellent Adventure');
+        hashTable.insert('Ruth\'s best movie', 'Hello World');
+        (hashTable.size).should.equal(2);
+      });
+
+      it('should add a key-value pair to the table', () => {
+        const hashTable = solution.makeHashTable();
+        let key = 'keanu reeves best movie';
+        hashTable.insert(key, 'Bill & Ted\'s Excellent Adventure');
+        let index = solution.getIndexBelowMaxForKey(key, 4);
+        (hashTable.storageForTest[index][0]).should.be.equal(key);
+      });
+      
       it('should allow keys to be reinserted with new values', () => {
         const hashTable = solution.makeHashTable();
         (function(){
@@ -83,7 +100,7 @@ describe('hashTables', () => {
       });*/
     });
 
-    describe('#retrieve', () => {
+    xdescribe('#retrieve', () => {
       it('should be a method of hashTable instances', () => {
         const hashTable = solution.makeHashTable();
         should.exist(hashTable.retrieve);
@@ -110,8 +127,8 @@ describe('hashTables', () => {
       });
     });
 
-    describe('#insert', () =>{
-      it('should allow valus to be updated', () =>{
+    xdescribe('#insert', () =>{
+      it('should allow values to be updated', () =>{
         const hashTable = solution.makeHashTable();
         hashTable.insert('Tarantino\'s best movie', 'Jackie Brown');
         hashTable.insert('Tarantino\'s best movie', 'Pulp Fiction');
@@ -121,7 +138,7 @@ describe('hashTables', () => {
       });
     });
 
-    describe('#remove', () =>{
+    xdescribe('#remove', () =>{
       it('should exist as a method of the hashTable instance', () =>{
         const hashTable = solution.makeHashTable();
         should.exist(hashTable.remove);
@@ -144,8 +161,8 @@ describe('hashTables', () => {
       });
     });
 
-    describe('#insert', () => {
-      it('should handle collisions', () => {
+    xdescribe('#insert', () => {
+      xit('should handle collisions', () => {
         const hashTable = solution.makeHashTable();
         (function(){
           const n = 1000;
@@ -155,7 +172,7 @@ describe('hashTables', () => {
         }).should.not.throw();
       });
     });
-    it('should be able to resize', () => {
+    xit('should be able to resize', () => {
       // if your hashtable isn't resizing, its going to start running more
       // and more slowly with a large number of inserts and retrievals.
       const hashTable = solution.makeHashTable();

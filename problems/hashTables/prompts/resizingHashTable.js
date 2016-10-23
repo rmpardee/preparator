@@ -12,18 +12,76 @@ const makeHashTable = () => {
   const storage = [];
 
   let storageLimit = 4;
-  let size = 0;
+  result.size = 0;
 
-  result.insert = () => {
-    // TODO: implement `insert`
+  result.storageForTest = storage;
+
+  const resize = (prevSize, newSize) => {
+    // redefine storage?
+
+    // loop through each bucket
+
+      // loop through each node
+
+      // find the new index for that key
+
+      // add it to the new storage
+
+    // reset the storage limit
   };
 
-  result.retrieve = () => {
-    // TODO: implement `retrieve`
+  result.insert = (key, value) => {
+    // if the size + 1 is > 3/4 of the limit
+    if (result.size + 1 < 0.75 * storageLimit) {
+      // resize the hash table
+      resize(storageLimit, storageLimit * 2);
+    }
+    // get the appropriate bucket from the storage array
+    let index = getIndexBelowMaxForKey(key, storageLimit);
+    let bucket = storage[index];
+    // if there already is a bucket at that index
+    if (bucket) {
+      // loop through the bucket at that index
+      bucket.forEach( tuple => {
+        let existingKey = tuple[0];
+        // if the first item in any of the tuples is that key, replace the value
+        if (existingKey === key) {
+          tuple[1] = value;
+        }
+      });
+    // if there's nothing at that index yet
+    } else {
+      // create an array at that index
+      let bucket = [];
+      storage[index] = bucket;
+      // add the key-value pair as a tuple to that array
+      bucket.push([key, value]);
+      // increment the size property since we'll be adding in any
+      result.size++;
+      console.log("key: ", key);
+      console.log("result.size: ", result.size);
+    }
   };
 
-  result.remove = () => {
-    // TODO: implement `remove`
+  result.retrieve = (key) => {
+    // get the index from the hashing function
+
+    // loop through the bucket at that index
+
+      // if the first item in a tuple is ever that key, return the value
+
+    // otherwise return undefined
+
+  };
+
+  result.remove = (key) => {
+    // get the index from the hashing function
+
+    // loop through the bucket at that index
+
+      // if the first item in a tuple is ever that key, slice that tuple from the bucket and return it
+
+    // otherwise return undefined
   };
 
   return result;
@@ -42,4 +100,4 @@ const getIndexBelowMaxForKey = (str, max) => {
   return hash % max;
 };
 
-module.exports = { makeHashTable };
+module.exports = { makeHashTable, getIndexBelowMaxForKey };
