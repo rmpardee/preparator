@@ -42,13 +42,15 @@ const makeHashTable = () => {
     // if there already is a bucket at that index
     if (bucket) {
       // loop through the bucket at that index
-      bucket.forEach( tuple => {
+      for (let i = 0; i < bucket.length; i++) {
+        let tuple = bucket[i];
         let existingKey = tuple[0];
         // if the first item in any of the tuples is that key, replace the value
         if (existingKey === key) {
           tuple[1] = value;
+          return;
         }
-      });
+      }
     // if there's nothing at that index yet
     } else {
       // create an array at that index
@@ -58,20 +60,26 @@ const makeHashTable = () => {
       bucket.push([key, value]);
       // increment the size property since we'll be adding in any
       result.size++;
-      console.log("key: ", key);
-      console.log("result.size: ", result.size);
     }
   };
 
   result.retrieve = (key) => {
     // get the index from the hashing function
-
-    // loop through the bucket at that index
-
-      // if the first item in a tuple is ever that key, return the value
-
+    let index = getIndexBelowMaxForKey(key, storageLimit);
+    let bucket = storage[index];
+    if (bucket) {
+      // loop through the bucket at that index
+      for (let i = 0; i < bucket.length; i++) {
+        let tuple = bucket[i];
+        let existingKey = tuple[0];
+        // if the existing key in any tuple is that key, return the value
+        if (existingKey === key) {
+          return tuple[1];
+        }
+      }
+    }
     // otherwise return undefined
-
+    return undefined;
   };
 
   result.remove = (key) => {
