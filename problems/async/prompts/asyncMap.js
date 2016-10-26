@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 /* RUTH's EDITED VERSION:
 
@@ -7,7 +7,7 @@ Implement the function `asyncMap`:
  * asyncMap has two parameters, an array of asynchronous functions (tasks) and a callback.
  * Each of the tasks takes in a callback (a different one than passed to asyncMap).
  * 
- * asyncMap first creates a results array of whatever argument is passed to the callback of each async task function. What's added in the results array for each function should just being exactly whatever is passed into the callback for that task (not manipulated in any way).
+ * asyncMap first creates a results array of whatever argument is passed to the callback of each async task function. What's added in the results array for each function should just be exactly whatever is passed into the callback for that task (not manipulated in any way).
  *
  * The callback passed to asyncMap is then performed on the results array (only once all the callbacks of all the tasks have returned). Nothing is returned.
  *
@@ -78,7 +78,7 @@ ES5:
   }
 );
 
- 1. asyncMap([
+ 2. asyncMap([
     callback => {
       setTimeout(() => {
         callback('one');
@@ -91,12 +91,12 @@ ES5:
     }
   ],
   results => {
+    // the results array passed here will equal ['one','two']
+    // even though the second function had a shorter timeout.
     for (var i=0; i < results.length; i++) {
       results[i] = results[i] + '!';
     }
-    // the results array will equal ['one!','two!']
-    // even though the second function had a shorter timeout.
-    console.log("the finished results array is: ", results); // ['one', 'two']
+    console.log("the finished results array is: ", results); // ['one!', 'two!']
   }
 );
  */
