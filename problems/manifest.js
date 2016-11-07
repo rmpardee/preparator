@@ -19,7 +19,7 @@
 //
   // './hashTables/tests/resizingHastTable.test.js',
 //
-  // './javascript/tests/arrays.test.js',
+  './javascript/tests/arrays.test.js',
   // './javascript/tests/async.test.js',
   // './javascript/tests/hoisting.test.js'
   // './javascript/tests/math.test.js',
@@ -40,16 +40,15 @@
   // './stacksAndQueues/tests/minStack.test.js',
   // './stacksAndQueues/tests/queue.test.js',
   // './stacksAndQueues/tests/stack.test.js',
-  // 
 // 
   // './strings/tests/isPalindrome.test.js',
   // './strings/tests/longest_palindrome.test.js',
   // './strings/tests/string_compression.test.js',
-  // './strings/tests/string_permutation.test.js'
+  // './strings/tests/string_permutation.test.js',
 // 
   // './trees/tests/basic_tree.test.js',
   // './trees/tests/pathSum_basic.test.js',
-  // './trees/tests/traverse_tree.test.js',
+  // './trees/tests/traverse_tree.test.js'
 
 ].forEach(function(test) {
 	require(test);

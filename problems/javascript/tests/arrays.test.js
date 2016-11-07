@@ -13,7 +13,7 @@ describe('JavaScript', () => {
   });
 
   describe('Array.join', () => {
-    it('predict the resulting array from joining ["A", "B", "C"] with no argument', () => {
+    it('predict the return value of joining ["A", "B", "C"] with no argument', () => {
        assert.isTrue(_.isEqual(solution.join, ["A", "B", "C"].join()));
     });
   });
@@ -43,31 +43,31 @@ describe('JavaScript', () => {
   });
 
   describe('Array.slice', () => {
-    it('predict the resulting array when slicing ["one","two", "three", "four"] at 0,2', () => {
-      const expected = ["one","two", "three", "four"].slice(0,2);
+    it('predict the resulting array when slicing ["one", "two", "three", "four"] at 0,2', () => {
+      const expected = ["one", "two", "three", "four"].slice(0,2);
       assert.isTrue(_.isEqual(solution.slice1, expected));
     });
 
-    it('predict the resulting array when slicing ["one","two", "three", "four"] at 0', () => {
-      const expected = ["one","two", "three", "four"].slice(0);
+    it('predict the resulting array when slicing ["one", "two", "three", "four"] at 0', () => {
+      const expected = ["one", "two", "three", "four"].slice(0);
       assert.isTrue(_.isEqual(solution.slice2, expected));
     });
 
-    it('predict the resulting array when slicing ["one","two", "three", "four"] at -2', () => {
-      const expected = ["one","two", "three", "four"].slice(-2);
+    it('predict the resulting array when slicing ["one", "two", "three", "four"] at -2', () => {
+      const expected = ["one", "two", "three", "four"].slice(-2);
       assert.isTrue(_.isEqual(solution.slice3, expected));
     });
   });
 
   describe('Array.splice', () => {
-    it('predict the resulting array of ["one","two", "three", "four"].splice(1, 2, 3, 4)', () => {
-      const expected = ["one","two", "three", "four"].splice(1, 2, 3, 4);
+    it('predict the resulting array of ["one", "two", "three", "four"].splice(1, 2, 3, 4)', () => {
+      const expected = ["one", "two", "three", "four"].splice(1, 2, 3, 4);
       assert.isTrue(_.isEqual(solution.splice, expected));
     });
   });
 
   describe('Array.reverse', () => {
-    it('predict the resulting array when invoking reverse on ["one","two", "three", "four"]', () => {
+    it('predict the resulting array when invoking reverse on ["one", "two", "three", "four"]', () => {
       const expected = ["one","two", "three", "four"].reverse();
       assert.isTrue(_.isEqual(solution.reverse, expected));
     });
@@ -103,7 +103,7 @@ describe('JavaScript', () => {
   });
 
   describe('Array.filter', () => {
-    it('predict the resulting array from [1, 40, 900, 60, 300].filtern(n =>  n < 300)', () => {
+    it('predict the resulting array from [1, 40, 900, 60, 300].filter(n =>  n < 300)', () => {
       const expected = [1, 40, 900, 60, 300].filter(n => n < 300);
       assert.isTrue(_.isEqual(solution.filter, expected));
     });
