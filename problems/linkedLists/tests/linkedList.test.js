@@ -13,7 +13,6 @@ describe('LinkedLists', () => {
 
     describe('constructor', () => {
       it('should create a new list with a null head and tail', () => {
-        // const myList = new LinkedList();
         assert.equal(myList.head, null, 'Head not null with new list creation');
         assert.equal(myList.tail, null, 'Tail not null with new list creation');
       });
@@ -21,27 +20,23 @@ describe('LinkedLists', () => {
 
     describe('addToHead', () => {
       it('should add items to head if list is empty', () => {
-        // const myList = new LinkedList();
         myList.addToHead('is my jam');
         assert.equal(myList.head.value, 'is my jam', 'Head insertion not working for empty list');
       });
 
       it('should update tail when adding items to head if list is empty', () => {
-        // const myList = new LinkedList();
         myList.addToHead('is my jam');
         assert.equal(myList.tail.value, 'is my jam', 'Head insertion not updating tail to same value when first item');
         assert.equal(myList.tail, myList.head, 'Head insertion not updating tail to point to same node when first item');
       });
 
       it('should add items to head if list is not empty', () => {
-        // const myList = new LinkedList();
         myList.addToHead('is my jam');
         myList.addToHead('This ');
         assert.equal(myList.head.value, 'This ', 'Head insertion not working for existing list');
       });
 
       it('should not update tail when adding items to head if list is not empty', () => {
-        // const myList = new LinkedList();
         myList.addToHead('is my jam');
         myList.addToHead('This ');
         assert.equal(myList.tail.value, 'is my jam', 'Head insertion not preserving existing tail when list is not empty');
@@ -51,27 +46,23 @@ describe('LinkedLists', () => {
 
     describe('addToTail', () => {
       it('should add items to tail if list is empty', () => {
-        // const myList = new LinkedList();
         myList.addToTail('This ');
         assert.equal(myList.tail.value, 'This ', 'Tail insertion not working for empty list');
       });
 
       it('should update head when adding items to tail if list is empty', () => {
-        // const myList = new LinkedList();
         myList.addToTail('This ');
         assert.equal(myList.head.value, 'This ', 'Tail insertion not updating head to same value when first item');
         assert.equal(myList.head, myList.tail, 'Tail insertion not updating head to point to same node when first item');
       });
 
       it('should add items to tail if list is not empty', () => {
-        // const myList = new LinkedList();
         myList.addToTail('This ');
         myList.addToTail('is my jam');
         assert.equal(myList.tail.value, 'is my jam', 'Tail insertion not working for existing list');
       });
 
       it('should not update head when adding items to tail if list is not empty', () => {
-        // const myList = new LinkedList();
         myList.addToTail('This ');
         myList.addToTail('is my jam');
         assert.equal(myList.head.value, 'This ', 'Tail insertion not preserving existing head when list is not empty');
@@ -81,7 +72,6 @@ describe('LinkedLists', () => {
 
     describe('contains', () => {
       it('should return true if the value exists anywhere in the list', () => {
-        // const myList = new LinkedList();
         myList.addToTail('is how ');
         myList.addToTail('we do it');
         myList.addToHead('This ');
@@ -91,7 +81,6 @@ describe('LinkedLists', () => {
       });
 
       it('should return false if the value does not exist anywhere in the list', () => {
-        // const myList = new LinkedList();
         myList.addToTail('is how ');
         myList.addToTail('we do it');
         myList.addToHead('This ');
@@ -101,7 +90,6 @@ describe('LinkedLists', () => {
     
     describe('indexOf', () => {
       it('should return the index if the value exists anywhere in the list', () => {
-        // const myList = new LinkedList();
         myList.addToTail('is how ');
         myList.addToTail('we do it');
         myList.addToHead('This ');
@@ -111,7 +99,6 @@ describe('LinkedLists', () => {
       });
 
       it('should return -1 if the value does not exist anywhere in the list', () => {
-        // const myList = new LinkedList();
         myList.addToTail('is how ');
         myList.addToTail('we do it');
         myList.addToHead('This ');
@@ -121,7 +108,6 @@ describe('LinkedLists', () => {
 
     describe('insertAfter', () => {
       it('should insert items after the passed in node', () => {
-        // const myList = new LinkedList();
         let fourthNode = null;
         for (let i = 0; i < 10; i++) {
           myList.addToTail(i);
