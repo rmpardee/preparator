@@ -16,8 +16,7 @@
   * Return true, as 3->1->9 = 13
   */
 
-const pathSum = (tree, targetSum, prevSum) => {
-  prevSum = prevSum || 0;
+const pathSum = (tree, targetSum, prevSum = 0) => {
   const currentSum = prevSum + tree.value;
 
   // base case 1: we've found the end of the tree
@@ -39,6 +38,26 @@ const pathSum = (tree, targetSum, prevSum) => {
     // after all recursive calls are finished, if any path exists return true, otherwise return false
     return (pathSumLeftExists || pathSumRightExists) ? true : false;
   }
+
+  // ALTERNATIVE SOLUTION:
+  // // base case 1: we've found the end of the tree and the sum is our target sum
+  // const endOfTree = (tree.left === null && tree.right === null);
+  // if (endOfTree && currentSum === targetSum) {
+  //   return true;
+  // // recursive cases: haven't reached the target sum yet
+  // } else if (currentSum < targetSum) {
+  //   if (tree.left) {
+  //     if (pathSum(tree.left, targetSum, currentSum)) {
+  //       return true;
+  //     }
+  //   }
+  //   if (tree.right) {
+  //     if (pathSum(tree.right, targetSum, currentSum)) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
 };
 
 module.exports = { pathSum };
