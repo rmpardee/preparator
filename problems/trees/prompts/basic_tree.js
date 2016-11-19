@@ -8,15 +8,29 @@
 
 class Tree {
   constructor(val) {
-    // TODO: Implement tree
+    this.value = val;
+    this.children = [];
   }
 
-  addChild() {
-    // TODO: Add ability to add children
+  addChild(val) {
+    const child = new Tree(val);
+    this.children.push(child);
   }
 
-  contains() {
-    // TODO: Add ability to check if value is contained within tree
+  contains(val) {
+    // base case 1: we've found the value
+    if (this.value === val) {
+      return true;
+    } else {
+      // loop through the children (can't use forEach because need to be able to return out of it)
+      for (var i = 0; i < this.children.length; i++) {
+        if (this.children[i].contains(val)) {
+          return true;
+        }
+      }
+      // if we've gone through all the children and didn't find anything
+      return false;
+    }
   }
 };
 
