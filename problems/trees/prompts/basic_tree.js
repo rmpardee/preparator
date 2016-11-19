@@ -32,6 +32,43 @@ class Tree {
       return false;
     }
   }
+
+  // More methods from Joel to complete and write tests for:
+  countLeaves() {
+
+  }
+
+  countNodes() {
+
+  }
+
+  updateValue(val) {
+
+  }
+
+  deleteLeaf() {
+
+  }
+
+  deleteBranch() {
+
+  }
+
+  removeDuplicates() {
+    
+  }
+
+  onEach(cb) {
+
+  }
+
+  mapToArray(cb) {
+
+  }
+
+  filterToArray(cb) {
+
+  }
 };
 
 module.exports = { Tree };
