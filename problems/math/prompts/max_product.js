@@ -22,7 +22,29 @@
 
 
 const maxProduct = int => {
-
+  // store the largest product
+  let largestProduct = null;
+  // subroutine - takes the multiplicand as parameter
+  const findLargestProduct = (multiplicand = 1) => {
+    // base case: our product is larger than the stored largest product
+    const product = multiplicand * (int - multiplicand);
+    if (product > largestProduct) {
+      // redefine the largest product stored
+      largestProduct = product;
+      console.log("largestProduct: ", largestProduct);
+    }
+    // recursive case: our product is not larger
+    if (multiplicand < (int - 1)) {
+      // pass in all numbers from 1 to (int less 1)
+      findLargestProduct(multiplicand + 1);
+    }
+  };
+  // call subroutine
+  findLargestProduct();
+  // return largest product
+  return largestProduct;
 };
+
+console.log("maxProduct(8): ", maxProduct(8));
 
 module.exports = { maxProduct };
