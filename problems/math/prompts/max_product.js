@@ -20,6 +20,10 @@
   * Because the largets product can be obtained by 3, 3, 2.
   */
 
+const allBreakdownOptions = int => {
+  return [[1,1,1],[1,2]];
+};
+
 
 const maxProduct = int => {
   // store the largest product
@@ -47,4 +51,4 @@ const maxProduct = int => {
 
 console.log("maxProduct(8): ", maxProduct(8));
 
-module.exports = { maxProduct };
+module.exports = { allBreakdownOptions, maxProduct };
