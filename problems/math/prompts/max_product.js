@@ -8,7 +8,7 @@
   * For example:
   * the number 8 can be broken into :
   * 1,7
-  * 1,1,5
+  * 1,1,1,5
   * 2,6
   * 3,5
   * 3,3,2
@@ -17,11 +17,23 @@
   * ...etc
   *
   * maxProduct(8); // => 18
-  * Because the largets product can be obtained by 3, 3, 2.
+  * Because the largest product can be obtained by 3, 3, 2.
   */
 
 const allBreakdownOptions = int => {
-  return [[1,1,1],[1,2]];
+  const permutations = [];
+  const makePerms = (nums = []) => {
+    const sum = nums.reduce((currentSum, number) => currentSum + number, 0);
+    if (sum === int) {
+      permutations.push(nums);
+    } else if (sum < int) {
+      for (let i = 1; i < int; i++) {
+        makePerms(nums.concat(i));
+      }
+    }
+  };
+  makePerms();
+  return permutations;
 };
 
 
@@ -35,7 +47,6 @@ const maxProduct = int => {
     if (product > largestProduct) {
       // redefine the largest product stored
       largestProduct = product;
-      console.log("largestProduct: ", largestProduct);
     }
     // recursive case: our product is not larger
     if (multiplicand < (int - 1)) {
@@ -48,7 +59,5 @@ const maxProduct = int => {
   // return largest product
   return largestProduct;
 };
-
-console.log("maxProduct(8): ", maxProduct(8));
 
 module.exports = { allBreakdownOptions, maxProduct };
