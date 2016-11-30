@@ -20,44 +20,54 @@
   * Because the largest product can be obtained by 3, 3, 2.
   */
 
-const allBreakdownOptions = int => {
-  const permutations = [];
-  const makePerms = (nums = []) => {
-    const sum = nums.reduce((currentSum, number) => currentSum + number, 0);
-    if (sum === int) {
-      permutations.push(nums);
-    } else if (sum < int) {
-      for (let i = 1; i < int; i++) {
-        makePerms(nums.concat(i));
+const allOptions = int => {
+  switch (int) {
+    // To create fewer cases for maxProduct, the default code includes nothing with 1's
+    // therefore I must deal with these edge cases first and hardcode them
+    case 1:
+      return [[1]];
+    case 2:
+      return [[1,1]];
+    case 3:
+      return [[2,1]];
+    default:
+      const permutations = [];
+      // To create fewer cases for maxProduct, the lowest number included
+      // in the permutations should grow as the magnitude of the int grows
+      // The default is 2 for any single or double digit number
+      let startAt = 2;
+      let stopAt = int;
+      const places = int.toString().length;
+      // For any number with 3 or more digits, we should start at however many digits it has
+      if (places > 2) {
+        startAt = places;
+        stopAt = int - places;
       }
-    }
-  };
-  makePerms();
-  return permutations;
+      const makePerms = (nums = []) => {
+        const sum = nums.reduce((currentSum, number) => currentSum + number, 0);
+        if (sum === int) {
+          permutations.push(nums);
+        } else if (sum < int) {
+          for (let i = startAt; i < stopAt; i++) {
+            makePerms(nums.concat(i));
+          }
+        }
+      };
+      makePerms();
+      return permutations;
+  }
 };
 
-
 const maxProduct = int => {
-  // store the largest product
   let largestProduct = null;
-  // subroutine - takes the multiplicand as parameter
-  const findLargestProduct = (multiplicand = 1) => {
-    // base case: our product is larger than the stored largest product
-    const product = multiplicand * (int - multiplicand);
+  const options = allOptions(int);
+  options.forEach(option => {
+    const product = option.reduce((currProduct, number) => currProduct * number, 1);
     if (product > largestProduct) {
-      // redefine the largest product stored
       largestProduct = product;
     }
-    // recursive case: our product is not larger
-    if (multiplicand < (int - 1)) {
-      // pass in all numbers from 1 to (int less 1)
-      findLargestProduct(multiplicand + 1);
-    }
-  };
-  // call subroutine
-  findLargestProduct();
-  // return largest product
+  });
   return largestProduct;
 };
 
-module.exports = { allBreakdownOptions, maxProduct };
+module.exports = { allOptions, maxProduct };

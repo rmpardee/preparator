@@ -19,7 +19,7 @@
 //
   // './hashTables/tests/resizingHastTable.test.js',
 //
-  './javascript/tests/arrays.test.js',
+  // './javascript/tests/arrays.test.js',
   // './javascript/tests/async.test.js',
   // './javascript/tests/hoisting.test.js'
   // './javascript/tests/math.test.js',
@@ -30,7 +30,7 @@
   // './linkedLists/tests/sortedListMerge.test.js',
 // 
   // './math/tests/isPrimeNumber.test.js',
-  // './math/tests/max_product.test.js',
+  './math/tests/max_product.test.js',
   // './math/tests/nthFibonacci.test.js',
   // './math/tests/recursiveMultiply.test.js',
 // 
